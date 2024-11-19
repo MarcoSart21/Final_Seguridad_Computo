@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Administración</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    </link>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    <header class="bg-blue-500 text-white p-4">
+        <h1 class="text-2xl font-bold">Dashboard de Administración</h1>
+    </header>
+    <div class="flex flex-1">
+        <aside class="bg-gray-800 text-white w-64 p-4">
+            <nav>
+                <ul>
+                    <li class="mb-4"><a href="#" class="hover:underline">Ver Usuarios</a></li>
+                    <li class="mb-4"><a href="#" class="hover:underline">Asignar/Revoke Roles</a></li>
+                    <li class="mb-4"><a href="#" class="hover:underline">Crear Roles</a></li>
+                    <li class="mb-4"><a href="#" class="hover:underline">Registro de Auditoría</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="flex-1 p-8">
+            <section id="ver-usuarios" class="mb-8">
+                <h2 class="text-xl font-bold mb-4">Ver Todos los Usuarios Registrados</h2>
+                <table class="min-w-full bg-white">
+                    <thead>
+                        <tr>
+                            <th class="py-2 px-4 border-b">ID</th>
+                            <th class="py-2 px-4 border-b">Nombre</th>
+                            <th class="py-2 px-4 border-b">Email</th>
+                            <th class="py-2 px-4 border-b">Rol</th>
+                            <th class="py-2 px-4 border-b">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="py-2 px-4 border-b">1</td>
+                            <td class="py-2 px-4 border-b">Juan Pérez</td>
+                            <td class="py-2 px-4 border-b">juan@example.com</td>
+                            <td class="py-2 px-4 border-b">Usuario</td>
+                            <td class="py-2 px-4 border-b">
+                                <button class="bg-blue-500 text-white px-2 py-1 rounded">Editar</button>
+                                <button class="bg-red-500 text-white px-2 py-1 rounded">Eliminar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b">2</td>
+                            <td class="py-2 px-4 border-b">María López</td>
+                            <td class="py-2 px-4 border-b">maria@example.com</td>
+                            <td class="py-2 px-4 border-b">Administrador</td>
+                            <td class="py-2 px-4 border-b">
+                                <button class="bg-blue-500 text-white px-2 py-1 rounded">Editar</button>
+                                <button class="bg-red-500 text-white px-2 py-1 rounded">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section id="asignar-revocar-roles" class="mb-8">
+                <h2 class="text-xl font-bold mb-4">Asignar o Revocar Roles a los Usuarios</h2>
+                <form action="#" method="POST">
+                    <div class="mb-4">
+                        <label for="usuario" class="block text-gray-700">Usuario</label>
+                        <select id="usuario" name="usuario"
+                            class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="1">Juan Pérez</option>
+                            <option value="2">María López</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="rol" class="block text-gray-700">Rol</label>
+                        <select id="rol" name="rol"
+                            class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="usuario">Usuario</option>
+                            <option value="administrador">Administrador</option>
+                        </select>
+                    </div>
+                    <button type="submit"
+                        class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300">Asignar/Revoke
+                        Rol</button>
+                </form>
+            </section>
+            <section id="crear-roles" class="mb-8">
+                <h2 class="text-xl font-bold mb-4">Crear Nuevos Roles y Asignar Permisos</h2>
+                <form action="#" method="POST">
+                    <div class="mb-4">
+                        <label for="nuevo-rol" class="block text-gray-700">Nuevo Rol</label>
+                        <input type="text" id="nuevo-rol" name="nuevo-rol"
+                            class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="permisos" class="block text-gray-700">Permisos</label>
+                        <textarea id="permisos" name="permisos"
+                            class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            rows="4" required></textarea>
+                    </div>
+                    <button type="submit"
+                        class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300">Crear
+                        Rol</button>
+                </form>
+            </section>
+            <section id="registro-auditoria">
+                <h2 class="text-xl font-bold mb-4">Registro de Auditoría</h2>
+                <table class="min-w-full bg-white">
+                    <thead>
+                        <tr>
+                            <th class="py-2 px-4 border-b">ID</th>
+                            <th class="py-2 px-4 border-b">Usuario</th>
+                            <th class="py-2 px-4 border-b">Acción</th>
+                            <th class="py-2 px-4 border-b">Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="py-2 px-4 border-b">1</td>
+                            <td class="py-2 px-4 border-b">Juan Pérez</td>
+                            <td class="py-2 px-4 border-b">Inició sesión</td>
+                            <td class="py-2 px-4 border-b">2023-10-01 12:34:56</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b">2</td>
+                            <td class="py-2 px-4 border-b">María López</td>
+                            <td class="py-2 px-4 border-b">Creó un nuevo rol</td>
+                            <td class="py-2 px-4 border-b">2023-10-01 13:45:23</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
